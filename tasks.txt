@@ -1,0 +1,4 @@
+add clickCount++ on click publication
+update About page
+update links in myContacts block
+create blog page
