@@ -1,5 +1,3 @@
-from tarfile import data_filter
-
 from django.shortcuts import render
 from .models import Publication
 def homepage(request):
