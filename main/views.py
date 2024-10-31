@@ -10,3 +10,10 @@ def homepage(request):
 
 def about(request):
     return render(request, 'main/about.html')
+
+def blog(request, publicationId):
+    publicationData = Publication.objects.get(id=publicationId)
+    publicationData.clickCount += 1
+    publicationData.save()
+
+    return render(request, 'main/blog.html', {'publicationData':publicationData})

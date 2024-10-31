@@ -1,4 +1,5 @@
-{% extends 'main/blog.html' %}
+{% extends 'main/base.html' %}
+{% load static %}
 
 {% block title %}Скучный блог джуна{% endblock %}
 {% block content %}
@@ -14,7 +15,7 @@
             <p class="blog-post-meta">{{ publication.date }}</p>
             <p>{{ publication.shortDescription }}</p>
             <div onMouseOver="this.style.color='#4e4d4d'" onMouseOut="this.style.color='#000000'">
-                <h6 class="mb-0"><a href="#" class="text-decoration-none text-reset" id="{{ publication.id }}">Читать статью</a></h6>
+                <h6 class="mb-0"><a href="{% url 'blog' publication.id %}" class="text-decoration-none text-reset" >Читать статью</a></h6>
             </div>
           </article>
           <hr>
@@ -36,7 +37,11 @@
                                     <svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
                                     <div class="col-lg-8">
                                         <h6 class="mb-0">{{ popularPublication.title }}</h6>
-                                        <small class="text-body-secondary">{{ popularPublication.date }} </small>
+                                        <small class="text-body-secondary" class="me-3">{{ popularPublication.date }} </small>
+                                        <div>
+                                            <img src="{% static 'img/watchEye.svg' %}" class="bi me-1" width="20" height="20" role="img" aria-label="Bootstrap"  alt="Просмотров :"/>
+                                            <small class="text-body-secondary">{{ popularPublication.clickCount }} </small><br>
+                                        </div>
                                     </div>
                                 </a>
                             </li>
@@ -47,9 +52,9 @@
         <div class="p-4">
           <h4 class="fst-italic">Связь со мной</h4>
           <ol class="list-unstyled">
-            <li><a href="#">GitHub</a></li>
-            <li><a href="#">Twitter</a></li>
-            <li><a href="#">Facebook</a></li>
+            <li><a href="https://github.com/yngqual1ty" target="GH">GitHub</a></li>
+            <li><a href="https://t.me/yavitzrs" target="TG">Telegram</a></li>
+            <li><a href="https://vk.com/bzhizik" target="VK">VK</a></li>
           </ol>
         </div>
       </div>

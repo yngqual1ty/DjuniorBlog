@@ -1,4 +1,6 @@
-add clickCount++ on click publication
 update About page
-update links in myContacts block
-create blog page
+
+Add createBlog page
+add photos feature
+
+create new branch for new features
