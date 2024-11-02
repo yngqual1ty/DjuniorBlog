@@ -1,10 +1,12 @@
-update About page
-
 create new branch for Admin features
--Add Login function
--Add deleteBlog function for blog and small blog on homepage
 -Add createBlog page
+-Add deleteBlog function for blog and small blog on homepage
+-Add Login function
 --add photos feature
+
+MODELS
+rebase model (create comments table with one-many)
+-create likes, comments, may be photos
 
 create branch for HomePage
 -Add likes
@@ -12,13 +14,10 @@ create branch for HomePage
 -Add BlogFilter(by date, views)
 
 
-add docker
-deploy project on server
-
-
 MayBe
 -Add 1/2/3/4 navigation for blog list in homepage
 
-MODELS
-rebase model
--create likes, comments, may be photos
+update About page
+
+add docker
+deploy project on server
