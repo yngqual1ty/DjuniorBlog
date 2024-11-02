@@ -11,11 +11,16 @@
     {% if publications %}
         {% for publication in publications %}
           <article class="blog-post">
-            <h2 class="display-5 link-body-emphasis mb-1">{{ publication.title }}</h2>
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <h2 class="display-5 link-body-emphasis mb-1">{{ publication.title }}
+                <a style="margin-left: 10px" href="{% url 'editBlog' publication.id %}"><img src="{% static 'img/edit.svg' %}" alt="Изменить"></a>
+                <a style="margin-left: 10px" href="{% url 'deleteBlog' publication.id %}"><img src="{% static 'img/trash.svg' %}" alt="Удалить"></a>
+                </h2>
+            </div>
             <p class="blog-post-meta">{{ publication.date }}</p>
             <p>{{ publication.shortDescription }}</p>
             <div onMouseOver="this.style.color='#4e4d4d'" onMouseOut="this.style.color='#000000'">
-                <h6 class="mb-0"><a href="{% url 'blog' publication.id %}" class="text-decoration-none text-reset" >Читать статью</a></h6>
+                <h6 class="mb-0"><a href="{% url 'blog' publication.id %}" class="text-decoration-underline text-reset" >Читать статью</a></h6>
             </div>
           </article>
           <hr>
@@ -33,7 +38,7 @@
 
                           {% for popularPublication in firstThreePublications %}
                             <li>
-                                <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
+                                <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="{% url 'blog' popularPublication.id %}">
                                     <svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
                                     <div class="col-lg-8">
                                         <h6 class="mb-0">{{ popularPublication.title }}</h6>

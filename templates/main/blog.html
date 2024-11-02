@@ -4,12 +4,19 @@
 {% block title %}{{ publicationData.title }}{% endblock %}
 
 {% block content %}
-    <h2 class="display-5 link-body-emphasis mb-1">{{ publicationData.title }}</h2>
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <h2 class="display-5 link-body-emphasis mb-1">{{ publicationData.title }}
+                <a style="margin-left: 10px" href="{% url 'editBlog' publicationData.id %}"><img src="{% static 'img/edit.svg' %}" alt="Изменить"></a>
+                <a style="margin-left: 10px" href="{% url 'deleteBlog' publicationData.id %}"><img src="{% static 'img/trash.svg' %}" alt="Удалить"></a>
+        </h2>
+    </div>
     <small class="me-3">{{ publicationData.date }}</small>
     <div class="d-inline-block">
         <img src="{% static 'img/watchEye.svg' %}" class="bi me-1" width="20" height="20" role="img" aria-label="Bootstrap"  alt="Просмотров :"/>
         <small class="text-body-secondary">{{ publicationData.clickCount }} </small><br>
     </div>
     <hr><br>
-    <h2>{{ publicationData.content }}</h2>
+    <div style="position: relative;word-wrap: break-word;">
+        <p style="line-height: 30px; font-size: 20px; font-family: 'Noto Sans Newa'">{{ publicationData.content|safe }}</p>
+    </div>
 {% endblock %}

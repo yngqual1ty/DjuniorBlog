@@ -1,14 +1,13 @@
-create new branch for Admin features
--Add createBlog page
--Add deleteBlog function for blog and small blog on homepage
+branch for Admin features
 -Add Login function
+-Add createBlog page only for login user
 --add photos feature
 
 MODELS
 rebase model (create comments table with one-many)
 -create likes, comments, may be photos
 
-create branch for HomePage
+branch for HomePage
 -Add likes
 -Add comments
 -Add BlogFilter(by date, views)
@@ -16,6 +15,7 @@ create branch for HomePage
 
 MayBe
 -Add 1/2/3/4 navigation for blog list in homepage
+-create annotations for all func etc.
 
 update About page
 
