@@ -1,6 +1,24 @@
 update About page
 
-Add createBlog page
-add photos feature
+create new branch for Admin features
+-Add Login function
+-Add deleteBlog function for blog and small blog on homepage
+-Add createBlog page
+--add photos feature
 
-create new branch for new features
+create branch for HomePage
+-Add likes
+-Add comments
+-Add BlogFilter(by date, views)
+
+
+add docker
+deploy project on server
+
+
+MayBe
+-Add 1/2/3/4 navigation for blog list in homepage
+
+MODELS
+rebase model
+-create likes, comments, may be photos
