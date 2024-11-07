@@ -10,4 +10,5 @@ urlpatterns = [
     path('editBlog/<int:publicationId>/', views.editBlog, name='editBlog'),
 
     path('accounts/logout/', views.logout_view, name='logout'),
+    path('signup/', views.signup, name='signup'),
 ]

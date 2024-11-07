@@ -1,3 +1,4 @@
+from django.contrib.auth.models import AbstractUser
 from django.db import models
 from datetime import datetime
 
@@ -10,3 +11,6 @@ class Publication(models.Model):
     clickCount = models.IntegerField(verbose_name='Количество переходов', default=0)
     def __str__(self):
         return self.title
+
+class User(AbstractUser):
+    ...

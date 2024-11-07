@@ -2,9 +2,10 @@ from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.urls import reverse
+from django.contrib import messages
 
 from .models import Publication
-from .forms import CreateBlogForm
+from .forms import CreateBlogForm, RegistrationForm
 
 def homepage(request):
     publications = Publication.objects.all().order_by('-date')
@@ -63,3 +64,20 @@ def editBlog(request, publicationId):
 def logout_view(request):
     logout(request)
     return redirect('/')
+
+
+def signup(request):
+    if request.method == 'POST':
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            save_form = form.save(commit=False)
+            save_form.set_password(form.cleaned_data.get('password1'))
+            save_form.save()
+            messages.success(request, 'User registered successfully')
+            return redirect('homepage')
+        else:
+            return render(request, 'registration/signup.html', {'form': form})
+
+
+    form = RegistrationForm()
+    return render(request, 'registration/signup.html', {'form': form})
