@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Изменить Публикацию{% endblock %}
+
+
+{% block content %}
+     <h3 class="fst-italic">Изменить публикацию</h3><hr><br>
+    <form method="post" action="">
+        {% csrf_token %}
+        {{ form.title }}<br>
+        {{ form.shortDescription }}
+        {{ form.content }}
+        <button type="submit" class="btn btn-success">Изменить</button>
+    </form>
+    <span>{{ error }}</span>
+{% endblock %}

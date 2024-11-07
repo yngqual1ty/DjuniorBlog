@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Регистрация{% endblock %}
+
+{% block content %}
+    <h3 class="fst-italic">Регистрация</h3><hr><br>
+    <form method="post">
+        {% csrf_token %}
+        <h4 class="fst-italic">Логин</h4>
+        {{ form.username }}<br><br>
+        <h4 class="fst-italic">Пароль</h4>
+        {{ form.password1 }}<br><br>
+        <h4 class="fst-italic">Повторите пароль</h4>
+        {{ form.password2 }}<br><br>
+        <button type="submit" class="btn btn-secondary">Регистрация</button>
+        <p class="fst-italic">Есть аккаунт? <a href="{% url 'login' %}">Войти</a></p>
+
+    </form>
+    <span>{{ form.errors }}</span>
+{% endblock %}
