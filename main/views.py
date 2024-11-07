@@ -1,3 +1,5 @@
+from django.contrib.auth import logout
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.urls import reverse
 
@@ -24,7 +26,7 @@ def blog(request, publicationId):
 
     return render(request, 'main/blog.html', {'publicationData':publicationData})
 
-
+@login_required
 def createBlog(request):
     error = ''
     if request.method == 'POST':
@@ -39,12 +41,12 @@ def createBlog(request):
     context = {'form': form, 'error': error}
     return render(request, 'main/createBlog.html', context)
 
-
+@login_required
 def deleteBlog(request, publicationId):
     Publication.objects.get(id=publicationId).delete()
     return redirect('homepage')
 
-
+@login_required
 def editBlog(request, publicationId):
     error = ''
     if request.method == 'POST':
@@ -56,3 +58,8 @@ def editBlog(request, publicationId):
     form = CreateBlogForm(instance=Publication.objects.get(id=publicationId))
     context = {'form': form, 'error': error}
     return render(request, 'main/editBlog.html', context)
+
+@login_required
+def logout_view(request):
+    logout(request)
+    return redirect('/')

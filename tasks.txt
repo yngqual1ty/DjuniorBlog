@@ -1,11 +1,7 @@
 branch for Admin features
 -Add Login function
 -Add createBlog page only for login user
---add photos feature
 
-MODELS
-rebase model (create comments table with one-many)
--create likes, comments, may be photos
 
 branch for HomePage
 -Add likes
@@ -13,11 +9,14 @@ branch for HomePage
 -Add BlogFilter(by date, views)
 
 
-MayBe
--Add 1/2/3/4 navigation for blog list in homepage
--create annotations for all func etc.
 
-update About page
+branch for SomeFeatures
+--rebase model (create comments table with one-many)
+--create likes, comments, may be photos
+--Add 1/2/3/4 navigation for blog list in homepage
+--create annotations for all func etc.
+--update About page
 
-add docker
-deploy project on server
+In the end
+-add docker
+-deploy project on server
