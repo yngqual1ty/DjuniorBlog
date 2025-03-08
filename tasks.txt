@@ -1,8 +1,3 @@
-branch for Admin features
--Add Login function
--Add createBlog page only for login user
-
-
 branch for HomePage
 -Add likes
 -Add comments
@@ -14,7 +9,7 @@ branch for SomeFeatures
 --rebase model (create comments table with one-many)
 --create likes, comments, may be photos
 --Add 1/2/3/4 navigation for blog list in homepage
---create annotations for all func etc.
+--create annotations for all func etc. (more no than yes)
 --update About page
 
 In the end

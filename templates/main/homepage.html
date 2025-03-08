@@ -21,8 +21,12 @@
             </div>
             <p class="blog-post-meta">{{ publication.date }}</p>
             <p>{{ publication.shortDescription }}</p>
-            <div onMouseOver="this.style.color='#4e4d4d'" onMouseOut="this.style.color='#000000'">
-                <h6 class="mb-0"><a href="{% url 'blog' publication.id %}" class="text-decoration-underline text-reset" >Читать статью</a></h6>
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                {% if publication.likes != 0 %}
+                    <small class="text-body-secondary">{{ publication.likes }}</small>
+                {% endif %}
+                <a style="margin-left: 5px" href=""><img src="{% static 'img/heart.svg' %}" alt="Нравится"></a>&ensp;&ensp;
+                <h6 onMouseOver="this.style.color='#4e4d4d'" onMouseOut="this.style.color='#000000'" class="mb-0"><a href="{% url 'blog' publication.id %}" class="text-decoration-underline text-reset" >Читать статью</a></h6>
             </div>
           </article>
           <hr>

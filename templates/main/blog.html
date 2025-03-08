@@ -21,4 +21,9 @@
     <div style="position: relative;word-wrap: break-word;">
         <p style="line-height: 30px; font-size: 20px; font-family: 'Noto Sans Newa'">{{ publicationData.content|safe }}</p>
     </div>
+    <hr>
+     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+             <small class="text-body-secondary">{{ publicationData.likes }}</small>
+         <a style="margin-left: 5px" href=""><img src="{% static 'img/heart.svg' %}" alt="Нравится"></a>&ensp;&ensp;
+     </div>
 {% endblock %}
