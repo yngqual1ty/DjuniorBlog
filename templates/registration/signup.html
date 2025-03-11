@@ -4,18 +4,123 @@
 {% block title %}Регистрация{% endblock %}
 
 {% block content %}
-    <h3 class="fst-italic">Регистрация</h3><hr><br>
-    <form method="post">
-        {% csrf_token %}
-        <h4 class="fst-italic">Логин</h4>
-        {{ form.username }}<br><br>
-        <h4 class="fst-italic">Пароль</h4>
-        {{ form.password1 }}<br><br>
-        <h4 class="fst-italic">Повторите пароль</h4>
-        {{ form.password2 }}<br><br>
-        <button type="submit" class="btn btn-secondary">Регистрация</button>
-        <p class="fst-italic">Есть аккаунт? <a href="{% url 'login' %}">Войти</a></p>
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="card p-4 shadow-lg" style="width: 350px; border-radius: 12px;">
+        <h3 class="text-center fst-italic">Регистрация</h3>
+        <hr>
+        <form method="post">
+            {% csrf_token %}
+            
+            <!-- Поле логина -->
+            <div class="mb-3 text-start">
+                <label for="id_username" class="form-label fst-italic">Логин</label>
+                {{ form.username }}
+            </div>
 
-    </form>
-    <span>{{ form.errors }}</span>
-{% endblock %}
+            <!-- Поле пароля с глазиком -->
+            <div class="mb-3 text-start position-relative">
+                <label for="id_password1" class="form-label fst-italic">Пароль</label>
+                <div class="password-wrapper">
+                    {{ form.password1 }}
+                    <span class="toggle-password" onclick="togglePassword('id_password1', 'eye-icon1')">
+                        <img src="{% static 'img/eye-icon.png' %}" alt="Показать пароль" id="eye-icon1">
+                    </span>
+                </div>
+            </div>
+
+            <!-- Поле подтверждения пароля с глазиком -->
+            <div class="mb-3 text-start position-relative">
+                <label for="id_password2" class="form-label fst-italic">Повторите пароль</label>
+                <div class="password-wrapper">
+                    {{ form.password2 }}
+                    <span class="toggle-password" onclick="togglePassword('id_password2', 'eye-icon2')">
+                        <img src="{% static 'img/eye-icon.png' %}" alt="Показать пароль" id="eye-icon2">
+                    </span>
+                </div>
+            </div>
+
+            <!-- Кнопка регистрации -->
+            <button type="submit" class="btn-custom w-100">Зарегистрироваться</button>
+        </form>
+        
+        <p class="text-center fst-italic mt-3">
+            Есть аккаунт? <a href="{% url 'login' %}">Войти</a>
+        </p>
+        <span class="text-danger">{{ form.errors }}</span>
+    </div>
+</div>
+
+<style>
+    /* Блок для пароля с глазом */
+    .password-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    .password-wrapper input {
+        width: 100%;
+        padding-right: 40px;
+    }
+
+    .toggle-password {
+        position: absolute;
+        right: 10px;
+        cursor: pointer;
+    }
+
+    .toggle-password img {
+        width: 24px;
+        height: 24px;
+    }
+
+    /* Стили для кнопки */
+    .btn-custom {
+        background: linear-gradient(45deg, #36D1DC, #5B86E5);
+        border: none;
+        padding: 10px;
+        color: white;
+        font-size: 18px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        font-weight: bold;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-custom:hover {
+        transform: scale(1.05);
+        background: linear-gradient(45deg, #5B86E5, #36D1DC);
+        box-shadow: 0 6px 12px rgba(91, 134, 229, 0.3);
+    }
+
+    .btn-custom:active {
+        transform: scale(0.98);
+    }
+
+    /* Стили для полей */
+    input {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+    }
+</style>
+
+<script>
+    function togglePassword(inputId, eyeId) {
+        let passwordField = document.getElementById(inputId);
+        let eyeIcon = document.getElementById(eyeId);
+
+        if (passwordField.type === "password") {
+            passwordField.type = "text";
+            eyeIcon.src = "{% static 'img/eye-closed-icon.png' %}";
+        } else {
+            passwordField.type = "password";
+            eyeIcon.src = "{% static 'img/eye-icon.png' %}";
+        }
+    }
+</script>
+{% endblock %} 
+
+
